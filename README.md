@@ -1,4 +1,4 @@
-# 2 - Threads e Multithread
+# 3 - Threads e Multithread
 
 "Thread" é um fluxo de sequência único dentro de um processo. Como os encadeamentos têm algumas das propriedades dos processos, às vezes eles são chamados de processos leves.
 
