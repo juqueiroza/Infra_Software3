@@ -9,17 +9,15 @@ void *th (){
 	printf("Enter number of elements in array: ");
 	scanf("%d", &size);
 
-	for(i = 1; i < size; i++) {
-	        printf("number %d -> ", i);
+	for(i = 0; i < size; i++) {
 	        scanf("%d", &a[i]);
-                printf("\n");
 	}
 
 }
 
 void *thread_avg() {
-        int sum = 0;
-        int i = 0;
+        float sum = 0;
+        int i;
 	for(i = 0; i < size; i++){
 		sum = sum + a[i];
         }
@@ -43,7 +41,7 @@ void *thread_min() {
 
 void *thread_max() {
 	int temp = a[0];
-        int i = 1;
+        int i;
 	for(i = 1; i < size; i++) {
 		if(temp < a[i]){
 			temp = a[i];
