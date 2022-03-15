@@ -37,7 +37,7 @@ void *th_max_num(void *arg) {
         pthread_exit (NULL);
 }
 
-void *th(void *arg){
+void *main_thread(void *arg){
         int i;
 
 	printf("Enter number of elements in array: ");
@@ -63,6 +63,6 @@ void *th(void *arg){
 
 int main() {
         pthread_t thread1;
-        pthread_create(&thread1, NULL, &th, NULL);
+        pthread_create(&thread1, NULL, &main_thread, NULL);
         pthread_join(thread1, NULL);
 }
