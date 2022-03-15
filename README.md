@@ -6,6 +6,23 @@
 
 "Escreva um programa com múltiplos threads que calcule diversos valores estatísticos para uma lista de números. Esse programa receberá uma série de números na linha de comando e, então, criará três threads de trabalho separados. Um dos threads determinará a média dos números, o segundo thread determinará o valor máximo, e o terceiro determinará o valor mínimo."
 
+## Como funciona 
+
+```bash
+
+Uma thread é criada na main
+ - usando pthread_create()
+ 
+   - essa thread recebe o tamanho do array & os números
+   
+ - dentro dessa thread mais 3 threads são criadas (thread_max_num, thread_min_num, thread_avg_num)
+ 
+   - a thread_max_num determina o maior numero do array
+   - a thread_min_num determina o menor numero do array
+   - a thread_avg_num determina a media dos numeros do array 
+
+```
+
 ## Como usar
 * Pré-Requisitos
   * editor de codigo
