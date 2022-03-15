@@ -11,15 +11,19 @@
 ```bash
 
 Uma thread é criada na main
- - usando pthread_create()
+ -> usando pthread_create()
  
-   - essa thread recebe o tamanho do array & os números
-   
- - dentro dessa thread mais 3 threads são criadas (thread_max_num, thread_min_num, thread_avg_num)
- 
-   - a thread_max_num determina o maior numero do array
-   - a thread_min_num determina o menor numero do array
-   - a thread_avg_num determina a media dos numeros do array 
+Essa thread recebe o tamanho do array & os números
+
+Dentro dessa thread princípal mais 3 threads são criadas (thread_max_num, thread_min_num, thread_avg_num)
+   -> a thread_max_num determina o maior numero do array
+   -> a thread_min_num determina o menor numero do array
+   -> a thread_avg_num determina a media dos numeros do array 
+  
+ No final a thread principal imprime os resultados 
+    ex: "The average value is X"
+        "The minimum value is Y"
+        "The maximum value is Z"
 
 ```
 
