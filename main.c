@@ -3,7 +3,7 @@
 
 int a[50], size, min, max, avg;
 
-void *thread_avg() {
+void *thread_avg(void *arg) {
         float sum = 0;
         int i;
 	for(i = 0; i < size; i++){
@@ -13,7 +13,7 @@ void *thread_avg() {
         pthread_exit (NULL);
 }
 
-void *thread_min() {
+void *thread_min(void *arg) {
 	int temp = a[0];
         int i;
 	for(i = 1; i < size; i++) {
@@ -25,7 +25,7 @@ void *thread_min() {
         pthread_exit (NULL);
 }
 
-void *thread_max() {
+void *thread_max(void *arg) {
 	int temp = a[0];
         int i;
 	for(i = 1; i < size; i++) {
