@@ -3,7 +3,7 @@
 
 int a[50], size, min, max, avg;
 
-void *thread_avg(void *arg) {
+void *th_avg_num(void *arg) {
         float sum = 0;
         int i;
 	for(i = 0; i < size; i++){
@@ -13,7 +13,7 @@ void *thread_avg(void *arg) {
         pthread_exit (NULL);
 }
 
-void *thread_min(void *arg) {
+void *th_min_num(void *arg) {
 	int temp = a[0];
         int i;
 	for(i = 1; i < size; i++) {
@@ -25,7 +25,7 @@ void *thread_min(void *arg) {
         pthread_exit (NULL);
 }
 
-void *thread_max(void *arg) {
+void *th_max_num(void *arg) {
 	int temp = a[0];
         int i;
 	for(i = 1; i < size; i++) {
@@ -47,24 +47,22 @@ void *th(void *arg){
 	        scanf("%d", &a[i]);
 	}
 
-        pthread_t th2;
-        pthread_t th3;
-        pthread_t th4; 
-        pthread_create(&th2, NULL, &thread_avg, NULL);
-	pthread_join(th2, NULL);
-	pthread_create(&th3, NULL, &thread_min, NULL);
-        pthread_join(th3, NULL);
-	pthread_create(&th4, NULL, &thread_max, NULL);
-        pthread_join(th4, NULL);
+        pthread_t thread2, thread3, thread4; 
+        pthread_create(&thread2, NULL, &th_avg_num, NULL);
+	pthread_join(thread2, NULL);
+	pthread_create(&thread3, NULL, &th_min_num, NULL);
+        pthread_join(thread3, NULL);
+	pthread_create(&thread4, NULL, &th_max_num, NULL);
+        pthread_join(thread4, NULL);
 
-        printf("The average value is: %d",avg);
-        printf("\nThe minimum value is %d",min);
-        printf("\nThe maximum value is %d\n",max);
+        printf("The average value is: %d", avg);
+        printf("\nThe minimum value is %d", min);
+        printf("\nThe maximum value is %d\n", max);
         pthread_exit (NULL);
 }
 
 int main() {
-        pthread_t th1;
-        pthread_create(&th1, NULL, &th, NULL);
-        pthread_join(th1, NULL);
+        pthread_t thread1;
+        pthread_create(&thread1, NULL, &th, NULL);
+        pthread_join(thread1, NULL);
 }
